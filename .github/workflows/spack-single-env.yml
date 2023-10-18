@@ -1,0 +1,24 @@
+---
+name: scibuilder-actions example workflow
+
+on:
+  push:
+    branches:
+    - "main"
+
+jobs:
+  spack-env-build:
+
+    runs-on: ubuntu
+    container:
+      image: docker.io/aaltoscienceit/scibuilder-actions:rocky9
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - uses: scifihpc/scibuilder-actions/actions/spack-env-build@v0.2.1
+      with:
+        spack-version: v0.20.1
+        environment: "$GITHUB_WORKSPACE/example_workflows/spack-single-env"
+        system-compiler: gcc@11.3.1
+        os: rocky9
