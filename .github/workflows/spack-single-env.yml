@@ -5,11 +5,15 @@ on:
   push:
     branches:
     - "main"
+    paths:
+    - '.github/workflows/spack-single-env.yml'
+    - 'spack-single-env/spack.yaml'
 
 jobs:
+
   spack-env-build:
 
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     container:
       image: docker.io/aaltoscienceit/scibuilder-actions:rocky9
 
