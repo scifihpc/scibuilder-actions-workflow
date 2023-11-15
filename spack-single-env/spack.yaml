@@ -1,18 +1,18 @@
 spack:
   modules:
-    enable:
-    - lmod
     default:
+      enable:
+      - lmod
       roots:
         lmod: /appl/scibuilder-spack/rocky9/single-env/lmod
       lmod:
         hash_length: 0
         hierarchy:
         - mpi
-        all:
-          autoload: direct
         core_compilers:
         - gcc@11.3.1
+        all:
+          autoload: direct
   view: false
   concretizer:
     unify: when_possible
