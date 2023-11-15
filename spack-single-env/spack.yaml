@@ -1,9 +1,16 @@
 spack:
   modules:
+    enable:
+    - lmod
     default:
       roots:
         lmod: /appl/scibuilder-spack/rocky9/single-env/lmod
       lmod:
+        hash_length: 0
+        hierarchy:
+        - mpi
+        all:
+          autoload: direct
         core_compilers:
         - gcc@11.3.1
   view: false
@@ -19,15 +26,5 @@ spack:
     build_language: en_US.utf8
     source_cache: /cache/spack/global/source_cache
     install_hash_length: 7
-  modules:
-    default:
-      enable:
-      - lmod
-      lmod:
-        hash_length: 0
-        hierarchy:
-        - mpi
-        all:
-          autoload: direct
   specs:
   - readline@8.2
